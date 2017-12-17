@@ -30,7 +30,7 @@ RUN apt-get update \
         && docker-php-ext-install memcached gd mbstring pdo pdo_mysql pdo_pgsql zip
 
 # install Drush
-ENV DRUSH_VERSION latest
+ENV DRUSH_VERSION 8.1.15
 RUN curl -L --silent https://github.com/drush-ops/drush/releases/download/${DRUSH_VERSION}/drush.phar \
   > /usr/local/bin/drush && chmod +x /usr/local/bin/drush
 
