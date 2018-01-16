@@ -1,5 +1,6 @@
 scrapy
 scrapy-redis
+scrapy_proxies
 pymongo
 requests
 fontTools
