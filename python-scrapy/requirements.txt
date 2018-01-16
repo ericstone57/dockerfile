@@ -1,5 +1,6 @@
 scrapy
 scrapy-redis
+scrapy-mongodb
 scrapy_proxies
 pymongo
 requests
