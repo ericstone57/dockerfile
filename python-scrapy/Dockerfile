@@ -16,9 +16,11 @@ RUN apt-get update && \
 RUN pip install --upgrade pip && \
 	pip install --upgrade \
 		setuptools \
-		wheel && \
-	pip install --upgrade scrapy
+		wheel
 
-WORKDIR /app	
+ADD requirements.txt /tmp/requirements.txt
+RUN	pip install --upgrade --no-cache-dir -r /tmp/requirements.txt
+
+WORKDIR /app
 
 CMD ["scrapy", "shell", "--nolog"]
