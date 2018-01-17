@@ -5,3 +5,4 @@ scrapy_proxies
 pymongo
 requests
 fontTools
+xlsxwriter
