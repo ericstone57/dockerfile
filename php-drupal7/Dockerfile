@@ -30,12 +30,12 @@ RUN apt-get update \
         && docker-php-ext-install memcached gd mbstring pdo pdo_mysql pdo_pgsql zip
 
 # install Drush
-ENV DRUSH_VERSION 8.1.15
+ENV DRUSH_VERSION 8.1.16
 RUN curl -L --silent https://github.com/drush-ops/drush/releases/download/${DRUSH_VERSION}/drush.phar \
   > /usr/local/bin/drush && chmod +x /usr/local/bin/drush
 
 # install redis
-ENV PHPREDIS_VERSION 3.1.4
+ENV PHPREDIS_VERSION 3.1.6
 RUN curl -L -o /tmp/redis.tar.gz https://github.com/phpredis/phpredis/archive/${PHPREDIS_VERSION}.tar.gz \
     && tar xfz /tmp/redis.tar.gz \
     && rm -r /tmp/redis.tar.gz \
@@ -47,5 +47,8 @@ RUN apt-get update && apt-get install -y gettext-base
 
 # clean cache
 RUN apt-get autoremove && apt-get autoclean
+
+RUN usermod -u 1000 www-data
+RUN usermod -G staff www-data
 
 WORKDIR /var/www
